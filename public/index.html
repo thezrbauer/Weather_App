@@ -5,24 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <link rel="stylesheet" href="stylesheet.css" type="text/css">
+    <link rel="stylesheet" href="tailwind.css" type="text/css">
 </head>
-<body>
-    <h1>Time For SOME CSS!</h1>
-    <div>
-       The Latitude is <span id='latitude'></span>&deg;
-       and the Longitude is <span id='longitude'></span>&deg;
+<body class='bg-blue-200'>
+    <!-- Learn more about tailwind on your portfolio then come back and update this-->
+    <div class="box-content  border-2 border-blue-200 rounded-lg items-center justify-center bg-blue-200">
+        <div class='flex items-center  justify-center bg-blue-200 ' >
+          <div class="weather-icon"><img src="icons/unknown.png" /></div>
+        </div>
+         <div class="flex items-center justify-center bg-blue-200">
+            <p id='summary'></p>
+         </div>
+          <div class="flex items-center  justify-center bg-blue-200">
+            <p><span id='temperature'></span>&deg; F</p>
+        </div>
+          <div class="flex items-center  justify-center bg-blue-200">
+          <h1 id='latitude'></h1>&deg; ,  <h1 id='longitude'></h1>&deg;
+        </div>
+          <div class="flex items-center  justify-center bg-blue-200">
+           <p>Wind Speed: <span id='wind_speed'></span> mph </p>
+        </div> 
     </div>
-
-    <div class="">
-        <p>
-         The weather is <span id='summary'></span> with a temperature of <span id='temperature'> </span> degrees Farenheit. With a wind speed of <span id='wind_speed'></span> MP
-
-        </p>
         
 
-    </div>
-    <div class="weather-icon"><img src="icons/unknown.png" /></div>
+</div>
+
+<!--   reference <footer>API used: OpenWeather</footer> -->
 </body>
 <script src="app.js"></script>
-</html> 
+</html>   

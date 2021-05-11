@@ -1,9 +1,5 @@
 //This can access the location of the user, pushing that information to the console.
 let lat, lon;
-
-
-
-
 if ('geolocation' in navigator)  {
   console.log('geolocation available');
   navigator.geolocation.getCurrentPosition( async position => {
@@ -20,31 +16,28 @@ if ('geolocation' in navigator)  {
     document.getElementById('summary').textContent = json.weather[0].main;
     document.getElementById('temperature').textContent = json.main.temp;
     document.getElementById('wind_speed').textContent = json.wind.speed;
-    
+    //This sets up the weather ICON learned it from stack overflow
     let locationIcon = document.querySelector('.weather-icon');
-     const {icon} = json.weather[0]
-     locationIcon.innerHTML = `<img src="icons/${icon}.png">`;
-    
-
-
+    const {icon} = json.weather[0]
+    locationIcon.innerHTML = `<img src="icons/${icon}.png">`;
 
     console.log(json);
   } catch(error){
     document.getElementById('temperature').textContent = 'no data available'
     console.log(error);
  }
- //submit data to database... 
-   const data = {lat, lon};
-   const options = {
-     method: 'POST',
-     headers: {
-       'Content-Type': 'application/json'
-  },
-     body: JSON.stringify(data)
- };
-   const db_response = await fetch('/api', options)
-   const db_json = await  db_response.json();
-   console.log(db_json);
+//  //submit data to database... 
+//    const data = {lat, lon};
+//    const options = {
+//      method: 'POST',
+//      headers: {
+//        'Content-Type': 'application/json'
+//   },
+//      body: JSON.stringify(data)
+//  };
+//    const db_response = await fetch('/api', options)
+//    const db_json = await  db_response.json();
+//    console.log(db_json);
 
 });
 }  else{
